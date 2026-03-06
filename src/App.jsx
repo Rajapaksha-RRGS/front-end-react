@@ -1,38 +1,34 @@
 import "./App.css";
 import Header from "./components/header.jsx";
-import Usestate from "./components/usestate.jsx";
-import ProductCarts from "./components/productCarts.jsx";
+import Loging from "./page/loging.jsx";
+import HomePage from "./page/home.jsx";
+import Singinup from "./page/singinup.jsx";
+import Admin from "./page/admin.jsx";
+import Testpage from "./page/testpage.jsx";
+import {
+  BrowserRouter as BrouserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <div>
-      <Header />
-      <div className="test2">
-        <ProductCarts
-          name="apple leptop"
-          description="High-performance laptop"
-          price="$1299.99"
-          picture="https://picsum.photos/id/1/200/300"
-        />
-        <ProductCarts
-          name="dell leptop"
-          description="High-performance laptop"
-          price="$1399.99"
-          picture="https://picsum.photos/id/20/200/300"
-        />
-        <ProductCarts
-          name="hp leptop"
-          description="High-performance laptop"
-          price="$1199.99"
-          picture="https://picsum.photos/id/30/200/300"
-        />
-        <ProductCarts
-          name="lenovo leptop"
-          description="High-performance laptop"
-          price="$1099.99"
-          picture="https://picsum.photos/id/40/200/300"
-        />
-      </div>
+      <BrouserRouter>
+        <div className="">
+          <Toaster position="top-right" />
+          <Header />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<Loging />} />
+            <Route path="/signup" element={<Singinup />} />
+            <Route path="/admin/*" element={<Admin />} />
+            <Route path="/testing" element={<Testpage />} />
+            <Route path="/*" element={<h1>404 Not Found</h1>} />
+          </Routes>
+        </div>
+      </BrouserRouter>
     </div>
   );
 }
