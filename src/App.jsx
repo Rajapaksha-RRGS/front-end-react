@@ -3,6 +3,7 @@ import Header from "./components/header.jsx";
 import Loging from "./page/loging.jsx";
 import HomePage from "./page/home.jsx";
 import Singinup from "./page/singinup.jsx";
+import Register from "./page/register.jsx";
 import Admin from "./page/admin.jsx";
 import Testpage from "./page/testpage.jsx";
 import {
@@ -24,6 +25,7 @@ function App() {
             <Route path="/login" element={<Loging />} />
             <Route path="/signup" element={<Singinup />} />
             <Route path="/admin/*" element={<Admin />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/testing" element={<Testpage />} />
             <Route path="/*" element={<h1>404 Not Found</h1>} />
           </Routes>
